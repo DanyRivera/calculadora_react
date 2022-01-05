@@ -9,8 +9,9 @@ const Contenedor = styled.div`
 `;
 
 const Calculadora = styled.div`
-  width: 35%;
-  padding: 50px;
+  width: 20%;
+  height: 50%;
+  padding: 20px;
   position: absolute;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, .2); 
@@ -20,28 +21,23 @@ const Calculadora = styled.div`
 
 const ContenidoCalculadora = styled.div`
   display: grid;
-  grid: repeat(4, 1fr) / repeat(4, 1fr);
+  height: 100%;
+  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+  gap: 10px;
 `;
 
-const Numeros = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+const ResetBtn = styled.button`
   grid-column: 1 / 4;
-  grid-row: 1 / 5;
 `;
 
-const Acciones = styled.div`
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  grid-row: 1 / 5;
-
-/* 
-  button[type="submit"] {
-    grid-row: 4 / 7;
-  }  */
-
+const PlusBtn = styled.button`
+  grid-column: 4 / 5;
+  grid-row: 4 / 6;
 `;
 
+const ZeroBtn = styled.button`
+  grid-column: 1 / 3;
+`;
 function App() {
 
   return (
@@ -49,84 +45,25 @@ function App() {
 
       <Calculadora>
 
-        <div>
-          Resultado / Operacion
-        </div>
+        {/* Resultado */}
 
         <ContenidoCalculadora>
-
-          <Numeros>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-            <button>
-              1
-            </button>
-
-          </Numeros>
-
-          <Acciones>
-
-            <button>
-              -
-            </button>
-
-            <button>
-              *
-            </button>
-
-            <button>
-              /
-            </button>
-
-            <button type="submit">
-              +
-            </button>
-
-            <button>
-              =
-            </button>
-
-          </Acciones>
-
+          <ResetBtn>C</ResetBtn>
+          <button>&divide;</button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>&times;</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>&minus;</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <PlusBtn>+</PlusBtn>
+          <ZeroBtn>0</ZeroBtn>
+          <button>=</button>
         </ContenidoCalculadora>
 
       </Calculadora>
