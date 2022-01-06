@@ -22,17 +22,17 @@ const ContenedorCalculadora = styled.div`
 `;
 
 const Calculadora = () => {
-    return (
-        <ContenedorCalculadora>
+  return (
+    <ContenedorCalculadora>
 
-            <div>
-                <Resultado />
-            </div>
+        <div>
+          <Resultado />
+        </div>
 
-            <BotonesCalculadora />
+        <BotonesCalculadora />
 
-        </ContenedorCalculadora>
-    )
+    </ContenedorCalculadora>
+  )
 }
 
 export default Calculadora

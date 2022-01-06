@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
-import OperacionProvider from "./context/OperacionContext";
 import Calculadora from "./components/Calculadora";
+
+//Context
+import OperacionState from "./context/OperacionState";
 
 const Contenedor = styled.div`
   height: 100vh;
@@ -14,7 +16,7 @@ function App() {
 
   return (
 
-    <OperacionProvider>
+    <OperacionState>
 
       <Contenedor>
 
@@ -22,7 +24,8 @@ function App() {
 
       </Contenedor>
 
-    </OperacionProvider>
+    </OperacionState>
+
   )
 }
 

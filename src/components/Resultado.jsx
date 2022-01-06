@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "@emotion/styled";
-import { OperacionContext } from "../context/OperacionContext";
+import OperacionContext from "../context/OperacionContext";
 
 const ContenidoResultado = styled.input`
     width: 100%;
@@ -14,7 +14,7 @@ const ContenidoResultado = styled.input`
 
 const Resultado = () => {
 
-    const { operacionInterfaz } = useContext(OperacionContext);
+    const { operacionInterfaz } = useContext(OperacionContext)
 
     return (
         <ContenidoResultado 

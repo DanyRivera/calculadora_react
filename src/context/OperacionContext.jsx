@@ -1,30 +1,12 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
 
 export const OperacionContext = createContext();
 
-const OperacionProvider = props => {
+export default OperacionContext;
 
-    const [operacion, setOperacion] = useState([]);
-    const [operacionInterfaz, setOperacionInterfaz] = useState('');
 
-    useEffect(() => {
+//Te separa los numeros de la operacion 
+// alt + 246 -- alt + 158 
+//const numeros = operacion.filter(value => Number(value));
 
-        //Une el arreglo en un string
-        setOperacionInterfaz(operacion.join(''));
 
-    }, [operacion])
-
-    return (
-        <OperacionContext.Provider
-            value={{
-                operacion,
-                operacionInterfaz,
-                setOperacion
-            }}
-        >
-            {props.children}
-        </OperacionContext.Provider>
-    )
-}
-
-export default OperacionProvider;

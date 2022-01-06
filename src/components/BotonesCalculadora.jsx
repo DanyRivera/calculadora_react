@@ -1,7 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import styled from "@emotion/styled";
-import { OperacionContext } from "../context/OperacionContext";
-import useOperacion from "../hooks/useOperacion";
+import OperacionContext from "../context/OperacionContext";
 
 const ContenidoCalculadora = styled.div`
   display: grid;
@@ -61,21 +60,28 @@ const EqualBtn = styled.button`
 
 const BotonesCalculadora = () => {
 
-    const {operacion, setOperacion} = useContext(OperacionContext);
+    const {setOperacion, setOperacionInterfaz, reset, operacion } = useContext(OperacionContext);
 
     const handleClick = value => {
 
         if(value == 'reset') {
-            setOperacion([]);
+            reset();
             return;
         }
 
-        setOperacion([...operacion, value]);
+        setOperacion(value);
     }
 
-    const handleSubmit = () => {
-        // const [] = useOperacion(operacion);
-    }
+    useEffect(() => {
+
+        setOperacionInterfaz();
+
+    }, [operacion])
+
+
+    // const handleSubmit = () => {
+            //hook
+    // }
 
     return (
         <ContenidoCalculadora>
@@ -88,7 +94,7 @@ const BotonesCalculadora = () => {
             </ResetBtn>
 
             <button
-                value="&divide;"
+                value="÷"
                 onClick={e => handleClick(e.target.value)}
             >
                 &divide;
@@ -105,7 +111,7 @@ const BotonesCalculadora = () => {
             ))}
 
             <button
-                value="&times;"
+                value="×"
                 onClick={e => handleClick(e.target.value)}
             >
                 &times;
@@ -122,7 +128,7 @@ const BotonesCalculadora = () => {
             ))}
 
             <button
-                value="&minus;"
+                value="-"
                 onClick={e => handleClick(e.target.value)}
             >
                 &minus;
