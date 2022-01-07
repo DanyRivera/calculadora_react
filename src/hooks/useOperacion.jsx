@@ -1,14 +1,38 @@
 import { useState } from "react"
 
-const useOperacion = (operacion) => {
+const useOperacion = operacion => {
 
     const [state, setState] = useState(0);
 
+    //Lógica para calcular el resultado // alt + 246 -- alt + 158 
     const CalcularResultado = () => {
-        //Lógica para calcular el resultado
+
+        //Lógica para fomatear la operacion(string) por * y /
+        let formatOperacion;
+
+        formatOperacion = operacion.replace('÷','/') 
+        formatOperacion = formatOperacion.replace('×','*');
+
+        const total = eval(formatOperacion);
+        
+        //Evaluar el resultado para ver si es necesario redondear o es igual a cero
+        if(total.toString().includes('.') || total === 0) {
+
+            setState(total.toFixed(3));
+
+        } else {
+
+            setState(total);
+
+        }
+
+
     }
 
-    return [state]
+    return [state, CalcularResultado]
 }
 
-export default useOperacion
+export default useOperacion;
+
+
+

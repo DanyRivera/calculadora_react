@@ -3,30 +3,31 @@ import OperacionContext from './OperacionContext';
 import OperacionReducer from './OperacionReducer';
 import { 
     DEFINIR_OPERACION, 
-    MOSTRAR_OPERACION, 
-    RESETEAR_CALCULADORA 
+    RESETEAR_CALCULADORA,
+    MOSTRAR_RESULTADO 
 } from '../types';
 
 const OperacionState = props => {
 
     const initialState = {
-        operacion: [],
-        operacionInterfaz: ''
+        operacion: '',
+        resultado: null
     }
 
     const [state, dispatch] = useReducer(OperacionReducer, initialState);
 
     //funciones que modifican el state
-    const setOperacion = (value) => {
+    const setOperacion = value => {
         dispatch({
             type: DEFINIR_OPERACION,
             payload: value
         })
     }
 
-    const setOperacionInterfaz = () => {
+    const setResultado = resultado => {
         dispatch({
-            type: MOSTRAR_OPERACION,
+            type: MOSTRAR_RESULTADO,
+            payload: resultado
         })
     }
 
@@ -36,14 +37,13 @@ const OperacionState = props => {
         })
     }
 
-
     return (
         <OperacionContext.Provider
             value={{
                 operacion: state.operacion,
-                operacionInterfaz: state.operacionInterfaz,
+                resultado: state.resultado,
                 setOperacion,
-                setOperacionInterfaz,
+                setResultado,
                 reset
             }}
         >

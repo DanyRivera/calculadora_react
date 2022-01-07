@@ -14,12 +14,12 @@ const ContenidoResultado = styled.input`
 
 const Resultado = () => {
 
-    const { operacionInterfaz } = useContext(OperacionContext)
+    const { operacion, resultado } = useContext(OperacionContext)
 
     return (
         <ContenidoResultado 
             type="text" 
-            defaultValue={operacionInterfaz}
+            defaultValue={ resultado ? resultado : operacion }
             disabled
         />
     )

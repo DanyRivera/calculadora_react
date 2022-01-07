@@ -3,7 +3,7 @@ import Resultado from "./Resultado";
 import BotonesCalculadora from "./BotonesCalculadora";
 
 const ContenedorCalculadora = styled.div`
-  width: 75%;
+  width: 70%;
   height: 50%;
   padding: 20px 20px 135px 20px;
   border-radius: 5px;
@@ -12,11 +12,11 @@ const ContenedorCalculadora = styled.div`
   box-shadow: 0 2.5px 18px #0000005e;
 
   @media (min-width: 876px) {
-    width: 50%;
+    width: 40%;
   }
 
   @media (min-width: 1230px) {
-    width: 30%;
+    width: 25%;
   }
 
 `;
