@@ -1,6 +1,7 @@
 import {
     DEFINIR_OPERACION,
     RESETEAR_CALCULADORA,
+    RESETEAR_OPERACION,
     MOSTRAR_RESULTADO
 } from "../types";
 
@@ -11,7 +12,7 @@ export default (state, action) => {
         case DEFINIR_OPERACION:
             return {
                 ...state,
-                operacion: state.operacion.concat(action.payload),
+                operacion: state.operacion.concat(action.payload)
             }
 
         case MOSTRAR_RESULTADO:
@@ -20,6 +21,12 @@ export default (state, action) => {
                 resultado: action.payload
             }
 
+
+        case RESETEAR_OPERACION:
+            return {
+                ...state,
+                operacion: `${action.payload.resultado}${action.payload.value}`
+            }
 
         case RESETEAR_CALCULADORA:
             return {

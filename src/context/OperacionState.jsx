@@ -4,6 +4,7 @@ import OperacionReducer from './OperacionReducer';
 import { 
     DEFINIR_OPERACION, 
     RESETEAR_CALCULADORA,
+    RESETEAR_OPERACION,
     MOSTRAR_RESULTADO 
 } from '../types';
 
@@ -31,9 +32,16 @@ const OperacionState = props => {
         })
     }
 
+    const resetOperacion = obj => {
+        dispatch({
+            type: RESETEAR_OPERACION,
+            payload: obj
+        })
+    }
+
     const reset = () => {
         dispatch({
-            type: RESETEAR_CALCULADORA,
+            type: RESETEAR_CALCULADORA
         })
     }
 
@@ -44,6 +52,7 @@ const OperacionState = props => {
                 resultado: state.resultado,
                 setOperacion,
                 setResultado,
+                resetOperacion,
                 reset
             }}
         >

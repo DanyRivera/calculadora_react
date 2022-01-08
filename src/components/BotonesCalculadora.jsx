@@ -61,21 +61,24 @@ const EqualBtn = styled.button`
 
 const BotonesCalculadora = () => {
 
-    const { setOperacion, setResultado, reset, operacion } = useContext(OperacionContext);
+    const { setOperacion, setResultado, resetOperacion, reset, operacion, resultado } = useContext(OperacionContext);
 
     //Custom Hook
-    const [resultado, CalcularResultado] = useOperacion(operacion);
+    const [total, CalcularResultado, ResetResultado] = useOperacion(operacion);
 
     useEffect(() => {
 
-        setResultado(resultado);
+        //Establece el total
+        setResultado(total);
 
-    }, [resultado])
+    }, [total])
 
     const handleClick = value => {
 
-        if (value == 'reset') {
-            reset();
+        //Revisa por si el usuario quiere seguir haciendo una operacion después de otra
+        if(resultado) {
+            resetOperacion({resultado, value});
+            setResultado(null);
             return;
         }
 
@@ -83,15 +86,17 @@ const BotonesCalculadora = () => {
     }
 
     const handleSubmit = () => {
-        CalcularResultado();
+        CalcularResultado();        
     }
 
     return (
         <ContenidoCalculadora>
 
             <ResetBtn
-                value="reset"
-                onClick={e => handleClick(e.target.value)}
+                onClick={() => {
+                    reset();
+                    ResetResultado();
+                }}
             >
                 C
             </ResetBtn>

@@ -12,16 +12,20 @@ const ContenedorCalculadora = styled.div`
   box-shadow: 0 2.5px 18px #0000005e;
 
   @media (min-width: 480px) {
-    width: 40%;
+    width: 75%;
   }
 
   @media (min-width: 876px) {
-    width: 30%;
+    width: 60%;
   }
 
   @media (min-width: 1230px) {
-    width: 23%;
+    width: 30%;
   }
+
+  @media (min-width: 1560px) {
+    width: 25%;
+  } 
 
 `;
 

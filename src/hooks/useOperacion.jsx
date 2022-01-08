@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const useOperacion = operacion => {
 
@@ -26,10 +26,16 @@ const useOperacion = operacion => {
 
         }
 
+    }
+
+    //Limpiar el state
+    const ResetResultado = () => {
+
+        setState(0);
 
     }
 
-    return [state, CalcularResultado]
+    return [state, CalcularResultado, ResetResultado]
 }
 
 export default useOperacion;
